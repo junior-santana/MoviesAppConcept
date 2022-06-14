@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MoviesAppConcept.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:icons="clr-namespace:MoviesAppConcept.Fonts"
+    xmlns:viewmodels="clr-namespace:MoviesAppConcept.ViewModels"
+    BackgroundColor="#eaebef"
+    NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.BindingContext>
+        <viewmodels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid>
+
+        <Polygon
+            Margin="-1,-1,-1,0"
+            Aspect="Fill"
+            Fill="{StaticResource PrimaryColor}"
+            HeightRequest="160"
+            Points="0,0 0,120 200,65 200,0"
+            VerticalOptions="Start" />
+
+        <!--  Top Bar  -->
+        <Grid Margin="5,0,5,0" VerticalOptions="Start">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="0"
+                Margin="0"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                CornerRadius="50"
+                FontFamily="MaterialIcons"
+                FontSize="26"
+                HorizontalOptions="Start"
+                Text="{Static icons:MaterialDesignIcons.Menu}"
+                TextColor="White" />
+
+            <Button
+                x:Name="BtnCategory"
+                Grid.Column="1"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                Clicked="BtnCategory_Clicked"
+                ContentLayout="Right"
+                FontSize="16"
+                HorizontalOptions="Center"
+                Text="{Binding Category}"
+                TextColor="White">
+                <Button.ImageSource>
+                    <FontImageSource
+                        FontFamily="MaterialIcons"
+                        Glyph="{Static icons:MaterialDesignIcons.ArrowDropDown}"
+                        Size="16"
+                        Color="White" />
+                </Button.ImageSource>
+            </Button>
+
+            <Button
+                Grid.Column="2"
+                Margin="0"
+                BackgroundColor="{StaticResource PrimaryColor}"
+                CornerRadius="50"
+                FontFamily="MaterialIcons"
+                FontSize="26"
+                Text="{Static icons:MaterialDesignIcons.Tune}"
+                TextColor="White" />
+        </Grid>
+
+        <!--  Movies List  -->
+        <ListView
+            x:Name="LstMovies"
+            Margin="15,60,15,15"
+            HasUnevenRows="True"
+            IsPullToRefreshEnabled="True"
+            IsRefreshing="{Binding IsBusy}"
+            ItemTapped="LstMovies_ItemTapped"
+            ItemsSource="{Binding Movies}"
+            RefreshCommand="{Binding RefreshCommand}"
+            SeparatorVisibility="None">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            Margin="0,0,0,15"
+                            Padding="10"
+                            CornerRadius="6"
+                            HasShadow="False"
+                            IsClippedToBounds="True">
+
+                            <Grid ColumnSpacing="15">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--  Poster  -->
+                                <Frame
+                                    Grid.Column="0"
+                                    Padding="0"
+                                    BackgroundColor="WhiteSmoke"
+                                    CornerRadius="6"
+                                    HorizontalOptions="Start"
+                                    IsClippedToBounds="True">
+                                    <Image
+                                        Aspect="AspectFill"
+                                        HeightRequest="130"
+                                        Source="{Binding PosterPath}"
+                                        WidthRequest="100" />
+                                </Frame>
+
+                                <!--  Movie Info  -->
+                                <Grid
+                                    Grid.Column="1"
+                                    Padding="0"
+                                    ColumnSpacing="0"
+                                    RowSpacing="3"
+                                    VerticalOptions="Center">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="8" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1.2*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2"
+                                        FontAttributes="Bold"
+                                        FontSize="Subtitle"
+                                        HorizontalOptions="Start"
+                                        MaxLines="2"
+                                        Text="{Binding Title}" />
+
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        Text="{Binding ReleaseDate, StringFormat='{0:yyyy}'}"
+                                        TextColor="Gray" />
+
+                                    <BoxView
+                                        Grid.Row="2"
+                                        Grid.ColumnSpan="2"
+                                        BackgroundColor="#f5f5f5"
+                                        HeightRequest="1"
+                                        VerticalOptions="Center" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Margin="0,2,0,0"
+                                        FontFamily="MaterialIcons"
+                                        FontSize="14"
+                                        Text="{Static icons:MaterialDesignIcons.Star}"
+                                        VerticalTextAlignment="Center" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="0"
+                                        Margin="18,0,0,0"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding VoteAverage, StringFormat='{0:0.0}'}" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="0,2,0,0"
+                                        FontFamily="MaterialIcons"
+                                        FontSize="14"
+                                        Text="{Static icons:MaterialDesignIcons.Person}"
+                                        VerticalTextAlignment="Center" />
+
+                                    <Label
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Margin="18,0,0,0"
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        Text="{Binding VoteCount}" />
+
+                                    <Label
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        Text="Rating"
+                                        TextColor="Gray"
+                                        VerticalOptions="Start" />
+
+                                    <Label
+                                        Grid.Row="4"
+                                        Grid.Column="1"
+                                        Text="Votes"
+                                        TextColor="Gray"
+                                        VerticalOptions="Start" />
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label
+            HorizontalOptions="Center"
+            IsVisible="{Binding NoMoviesFound}"
+            Text="No movies found"
+            VerticalOptions="Center" />
+
+    </Grid>
+
+</ContentPage>

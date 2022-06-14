@@ -1,0 +1,144 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+   
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\movies_now_playing.json" />
+    <None Remove="Data\movies_popular.json" />
+    <None Remove="Data\movies_upcoming.json" />
+    <None Remove="Data\movie_credits_335787.json" />
+    <None Remove="Data\movie_credits_338953.json" />
+    <None Remove="Data\movie_credits_361743.json" />
+    <None Remove="Data\movie_credits_374205.json" />
+    <None Remove="Data\movie_credits_414906.json" />
+    <None Remove="Data\movie_credits_438148.json" />
+    <None Remove="Data\movie_credits_453395.json" />
+    <None Remove="Data\movie_credits_507086.json" />
+    <None Remove="Data\movie_credits_508947.json" />
+    <None Remove="Data\movie_credits_526896.json" />
+    <None Remove="Data\movie_credits_545611.json" />
+    <None Remove="Data\movie_credits_592695.json" />
+    <None Remove="Data\movie_credits_614934.json" />
+    <None Remove="Data\movie_credits_628900.json" />
+    <None Remove="Data\movie_credits_629542.json" />
+    <None Remove="Data\movie_credits_634649.json" />
+    <None Remove="Data\movie_credits_639933.json" />
+    <None Remove="Data\movie_credits_655302.json" />
+    <None Remove="Data\movie_credits_675353.json" />
+    <None Remove="Data\movie_credits_676705.json" />
+    <None Remove="Data\movie_credits_678287.json" />
+    <None Remove="Data\movie_credits_684281.json" />
+    <None Remove="Data\movie_credits_689700.json" />
+    <None Remove="Data\movie_credits_698508.json" />
+    <None Remove="Data\movie_credits_718789.json" />
+    <None Remove="Data\movie_credits_736732.json" />
+    <None Remove="Data\movie_credits_746131.json" />
+    <None Remove="Data\movie_credits_752623.json" />
+    <None Remove="Data\movie_credits_756681.json" />
+    <None Remove="Data\movie_credits_756999.json" />
+    <None Remove="Data\movie_credits_760104.json" />
+    <None Remove="Data\movie_credits_760926.json" />
+    <None Remove="Data\movie_credits_763285.json" />
+    <None Remove="Data\movie_credits_768744.json" />
+    <None Remove="Data\movie_credits_778810.json" />
+    <None Remove="Data\movie_credits_780609.json" />
+    <None Remove="Data\movie_credits_785985.json" />
+    <None Remove="Data\movie_credits_799876.json" />
+    <None Remove="Data\movie_credits_810693.json" />
+    <None Remove="Data\movie_credits_818397.json" />
+    <None Remove="Data\movie_credits_819876.json" />
+    <None Remove="Data\movie_credits_826749.json" />
+    <None Remove="Data\movie_credits_836225.json" />
+    <None Remove="Data\movie_credits_864116.json" />
+    <None Remove="Data\movie_credits_883502.json" />
+    <None Remove="Data\movie_credits_916821.json" />
+    <None Remove="Fonts\MaterialIcons-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\movies_now_playing.json" />
+    <EmbeddedResource Include="Data\movies_popular.json" />
+    <EmbeddedResource Include="Data\movies_upcoming.json" />
+    <EmbeddedResource Include="Data\movie_credits_335787.json" />
+    <EmbeddedResource Include="Data\movie_credits_338953.json" />
+    <EmbeddedResource Include="Data\movie_credits_361743.json" />
+    <EmbeddedResource Include="Data\movie_credits_374205.json" />
+    <EmbeddedResource Include="Data\movie_credits_414906.json" />
+    <EmbeddedResource Include="Data\movie_credits_438148.json" />
+    <EmbeddedResource Include="Data\movie_credits_453395.json" />
+    <EmbeddedResource Include="Data\movie_credits_507086.json" />
+    <EmbeddedResource Include="Data\movie_credits_508947.json" />
+    <EmbeddedResource Include="Data\movie_credits_526896.json" />
+    <EmbeddedResource Include="Data\movie_credits_545611.json" />
+    <EmbeddedResource Include="Data\movie_credits_592695.json" />
+    <EmbeddedResource Include="Data\movie_credits_614934.json" />
+    <EmbeddedResource Include="Data\movie_credits_628900.json" />
+    <EmbeddedResource Include="Data\movie_credits_629542.json" />
+    <EmbeddedResource Include="Data\movie_credits_634649.json" />
+    <EmbeddedResource Include="Data\movie_credits_639933.json" />
+    <EmbeddedResource Include="Data\movie_credits_655302.json" />
+    <EmbeddedResource Include="Data\movie_credits_675353.json" />
+    <EmbeddedResource Include="Data\movie_credits_676705.json" />
+    <EmbeddedResource Include="Data\movie_credits_678287.json" />
+    <EmbeddedResource Include="Data\movie_credits_684281.json" />
+    <EmbeddedResource Include="Data\movie_credits_689700.json" />
+    <EmbeddedResource Include="Data\movie_credits_698508.json" />
+    <EmbeddedResource Include="Data\movie_credits_718789.json" />
+    <EmbeddedResource Include="Data\movie_credits_736732.json" />
+    <EmbeddedResource Include="Data\movie_credits_746131.json" />
+    <EmbeddedResource Include="Data\movie_credits_752623.json" />
+    <EmbeddedResource Include="Data\movie_credits_756681.json" />
+    <EmbeddedResource Include="Data\movie_credits_756999.json" />
+    <EmbeddedResource Include="Data\movie_credits_760104.json" />
+    <EmbeddedResource Include="Data\movie_credits_760926.json" />
+    <EmbeddedResource Include="Data\movie_credits_763285.json" />
+    <EmbeddedResource Include="Data\movie_credits_768744.json" />
+    <EmbeddedResource Include="Data\movie_credits_778810.json" />
+    <EmbeddedResource Include="Data\movie_credits_780609.json" />
+    <EmbeddedResource Include="Data\movie_credits_785985.json" />
+    <EmbeddedResource Include="Data\movie_credits_799876.json" />
+    <EmbeddedResource Include="Data\movie_credits_810693.json" />
+    <EmbeddedResource Include="Data\movie_credits_818397.json" />
+    <EmbeddedResource Include="Data\movie_credits_819876.json" />
+    <EmbeddedResource Include="Data\movie_credits_826749.json" />
+    <EmbeddedResource Include="Data\movie_credits_836225.json" />
+    <EmbeddedResource Include="Data\movie_credits_864116.json" />
+    <EmbeddedResource Include="Data\movie_credits_883502.json" />
+    <EmbeddedResource Include="Data\movie_credits_916821.json" />
+    <EmbeddedResource Include="Fonts\MaterialIcons-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data\movies.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\Templates\MovieDetailsTabsSection.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MovieDetails.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Templates\MovieDetailsTabsSection.xaml.cs">
+      <DependentUpon>MovieDetailsTabsSection.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="MoviesAppConcept.Views.MovieDetailsTabsSection"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:MoviesAppConcept.Models"
+    xmlns:viewmodels="clr-namespace:MoviesAppConcept.ViewModels"
+    x:DataType="viewmodels:MovieDetailsViewModel">
+
+    <ContentView.Content>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!--#region Tab Controls-->
+            <Grid
+                x:Name="Tabs"
+                Grid.Row="0"
+                Margin="0,10,0,0"
+                HeightRequest="30">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="HorizontalTextAlignment" Value="Center" />
+                        <Setter Property="VerticalTextAlignment" Value="Center" />
+                    </Style>
+                </Grid.Resources>
+
+                <Label Grid.Column="0" Text="Info">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Grid.Column="1" Text="Cast">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Grid.Column="2" Text="News">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Grid.Column="3" Text="Critics">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label Grid.Column="4" Text="Media">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Tab_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+
+            <Grid
+                Grid.Row="1"
+                Margin="0,0,0,5"
+                HeightRequest="3"
+                VerticalOptions="Start">
+                <BoxView
+                    BackgroundColor="Gainsboro"
+                    HeightRequest="1"
+                    VerticalOptions="Center" />
+
+                <BoxView
+                    x:Name="TabIndicator"
+                    BackgroundColor="{StaticResource SecondaryColor}"
+                    HorizontalOptions="Start"
+                    WidthRequest="61" />
+            </Grid>
+
+            <!--#endregion-->
+
+            <!--  Info  -->
+            <Grid
+                x:Name="InfoSection"
+                Grid.Row="2"
+                IsVisible="True">
+                <Label Text="{Binding Movie.Overview}" />
+            </Grid>
+
+            <!--  Cast  -->
+            <Grid
+                x:Name="CastSection"
+                Grid.Row="2"
+                IsVisible="False">
+                <ListView
+                    HasUnevenRows="True"
+                    ItemsSource="{Binding Cast}"
+                    SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate x:DataType="models:Cast">
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="60" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="70" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Frame
+                                        Padding="0"
+                                        BackgroundColor="WhiteSmoke"
+                                        CornerRadius="25"
+                                        HasShadow="False"
+                                        HeightRequest="50"
+                                        HorizontalOptions="Start"
+                                        IsClippedToBounds="True"
+                                        VerticalOptions="Center"
+                                        WidthRequest="50">
+                                        <Image Aspect="AspectFill" Source="{Binding ProfilePath}" />
+                                    </Frame>
+
+                                    <StackLayout
+                                        Grid.Column="1"
+                                        Spacing="0"
+                                        VerticalOptions="Center">
+                                        <Label
+                                            FontAttributes="Bold"
+                                            FontSize="16"
+                                            Text="{Binding Name}" />
+                                        <Label Text="{Binding Character, StringFormat='as {0}'}" TextColor="DarkGray" />
+                                    </StackLayout>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ActivityIndicator IsRunning="{Binding IsBusy}" />
+            </Grid>
+
+            <Grid
+                x:Name="NewsSection"
+                Grid.Row="2"
+                IsVisible="False">
+                <Label Text="News" />
+            </Grid>
+
+            <Grid
+                x:Name="CriticsSection"
+                Grid.Row="2"
+                IsVisible="False">
+                <Label Text="Critics" />
+            </Grid>
+
+            <Grid
+                x:Name="MediaSection"
+                Grid.Row="2"
+                IsVisible="False">
+                <Label Text="Media" />
+            </Grid>
+
+        </Grid>
+
+    </ContentView.Content>
+</ContentView>
